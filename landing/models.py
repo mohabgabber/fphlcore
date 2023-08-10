@@ -16,3 +16,6 @@ class Team(models.Model):
 
     class Meta:
         ordering = ["-add_date"]
+
+class Research(models.Model):
+    pass
