@@ -1,9 +1,16 @@
 from django.shortcuts import render
 from django.views import View
-
+from .models import Faq, Subject
 class Land(View):
     def get(self, request, *args, **kwargs):
-        return render(request, "landing/land.html")
+        faq = Faq.objects.all()
+        subjects = Subject.objects.filter(home=True)
+        
+        context = {
+            "faq": faq,
+            "sub": subjects,
+        } 
+        return render(request, "landing/land.html", context)
     
 class About(View):
     def get(self, request, *args, **kwargs):
