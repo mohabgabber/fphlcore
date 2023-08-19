@@ -48,7 +48,7 @@
                         <i class="fa fa-check bg-light text-primary btn-sm-square rounded-circle me-3 fw-bold"></i>
                         <span>Tempor erat elitr rebum at clita</span>
                     </div>
-                    <a class="btn btn-primary py-3 px-4" href="">Read More</a>
+                    <a class="btn btn-primary py-3 px-4" href="{% url 'about' %}">المزيد عن القسم</a>
                 </div>
             </div>
         </div>
@@ -59,20 +59,9 @@
 <div class="container-xxl bg-light py-5 my-5">
     <div class="container py-5">
         <div class="row g-5">
-            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.1s">
-                <img class="img-fluid mb-4" src="img/icon-9.png" alt="">
-                <h1 class="display-4" data-toggle="counter-up">123456</h1>
-                <p class="fs-5 text-primary mb-0">Today Transactions</p>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.3s">
-                <img class="img-fluid mb-4" src="img/icon-10.png" alt="">
-                <h1 class="display-4" data-toggle="counter-up">123456</h1>
-                <p class="fs-5 text-primary mb-0">Monthly Transactions</p>
-            </div>
-            <div class="col-lg-4 col-md-6 text-center wow fadeIn" data-wow-delay="0.5s">
-                <img class="img-fluid mb-4" src="img/icon-2.png" alt="">
-                <h1 class="display-4" data-toggle="counter-up">123456</h1>
-                <p class="fs-5 text-primary mb-0">Total Transactions</p>
+            <div class="text-center  wow fadeIn" data-wow-delay="0.1s">
+                <h1 class="display-4" data-toggle="counter-up">91</h1>
+                <p class="fs-5 text-primary mb-0">خريجين من القسم</p>
             </div>
         </div>
     </div>
@@ -81,69 +70,16 @@
 <div class="container-xxl bg-light py-5 my-5">
     <div class="container py-5">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h1 class="display-6">Services</h1>
-            <p class="text-primary fs-5 mb-5">Buy, Sell And Exchange Cryptocurrency</p>
+            <h1 class="display-6">المواد الدراسية</h1>
         </div>
         <div class="row g-4">
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                {% for i in sub %}
                 <div class="service-item bg-white p-5">
-                    <img class="img-fluid mb-4" src="img/icon-7.png" alt="">
-                    <h5 class="mb-3">Currency Wallet</h5>
-                    <p>Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita
-                        duo
-                        justo</p>
-                    <a href="">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                    <h5 class="mb-3">{{i.name}}</h5>
+                    <p>{{i.description}}</p>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item bg-white p-5">
-                    <img class="img-fluid mb-4" src="img/icon-3.png" alt="">
-                    <h5 class="mb-3">Currency Transaction</h5>
-                    <p>Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita
-                        duo
-                        justo</p>
-                    <a href="">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item bg-white p-5">
-                    <img class="img-fluid mb-4" src="img/icon-9.png" alt="">
-                    <h5 class="mb-3">Bitcoin Investment</h5>
-                    <p>Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita
-                        duo
-                        justo</p>
-                    <a href="">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="service-item bg-white p-5">
-                    <img class="img-fluid mb-4" src="img/icon-5.png" alt="">
-                    <h5 class="mb-3">Currency Exchange</h5>
-                    <p>Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita
-                        duo
-                        justo</p>
-                    <a href="">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="service-item bg-white p-5">
-                    <img class="img-fluid mb-4" src="img/icon-2.png" alt="">
-                    <h5 class="mb-3">Bitcoin Escrow</h5>
-                    <p>Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita
-                        duo
-                        justo</p>
-                    <a href="">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="service-item bg-white p-5">
-                    <img class="img-fluid mb-4" src="img/icon-8.png" alt="">
-                    <h5 class="mb-3">Token Sale</h5>
-                    <p>Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita
-                        duo
-                        justo</p>
-                    <a href="">Read More <i class="fa fa-arrow-right ms-2"></i></a>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -237,140 +173,27 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-            <h1 class="display-6">FAQs</h1>
-            <p class="text-primary fs-5 mb-5">Frequently Asked Questions</p>
+            <h1 class="display-6">الأسئلة الشائعة</h1>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="accordion" id="accordionExample">
+                    {% for q in faq %}
                     <div class="accordion-item wow fadeInUp" data-wow-delay="0.1s">
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                How to build a website?
+                                {{q.q}}
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Dolor nonumy tempor elitr et rebum ipsum sit duo duo. Diam sed sed magna et
-                                magna
-                                diam aliquyam amet dolore ipsum erat duo. Sit rebum magna duo labore no diam.
+                                {{q.a}}
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                How long will it take to get a new website?
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Dolor nonumy tempor elitr et rebum ipsum sit duo duo. Diam sed sed magna et
-                                magna
-                                diam aliquyam amet dolore ipsum erat duo. Sit rebum magna duo labore no diam.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item wow fadeInUp" data-wow-delay="0.3s">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Do you only create HTML websites?
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Dolor nonumy tempor elitr et rebum ipsum sit duo duo. Diam sed sed magna et
-                                magna
-                                diam aliquyam amet dolore ipsum erat duo. Sit rebum magna duo labore no diam.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
-                        <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                                Will my website be mobile-friendly?
-                            </button>
-                        </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Dolor nonumy tempor elitr et rebum ipsum sit duo duo. Diam sed sed magna et
-                                magna
-                                diam aliquyam amet dolore ipsum erat duo. Sit rebum magna duo labore no diam.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
-                        <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                Will you maintain my site for me?
-                            </button>
-                        </h2>
-                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Dolor nonumy tempor elitr et rebum ipsum sit duo duo. Diam sed sed magna et
-                                magna
-                                diam aliquyam amet dolore ipsum erat duo. Sit rebum magna duo labore no diam.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
-                        <h2 class="accordion-header" id="headingSix">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                I’m on a strict budget. Do you have any low cost options?
-                            </button>
-                        </h2>
-                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Dolor nonumy tempor elitr et rebum ipsum sit duo duo. Diam sed sed magna et
-                                magna
-                                diam aliquyam amet dolore ipsum erat duo. Sit rebum magna duo labore no diam.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item wow fadeInUp" data-wow-delay="0.7s">
-                        <h2 class="accordion-header" id="headingSeven">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                Will you maintain my site for me?
-                            </button>
-                        </h2>
-                        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Dolor nonumy tempor elitr et rebum ipsum sit duo duo. Diam sed sed magna et
-                                magna
-                                diam aliquyam amet dolore ipsum erat duo. Sit rebum magna duo labore no diam.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
-                        <h2 class="accordion-header" id="headingEight">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                I’m on a strict budget. Do you have any low cost options?
-                            </button>
-                        </h2>
-                        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
-                            data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Dolor nonumy tempor elitr et rebum ipsum sit duo duo. Diam sed sed magna et
-                                magna
-                                diam aliquyam amet dolore ipsum erat duo. Sit rebum magna duo labore no diam.
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
