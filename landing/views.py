@@ -1,14 +1,15 @@
 from django.shortcuts import render
 from django.views import View
-from .models import Faq, Subject
+from .models import Faq, Subject, Road
 class Land(View):
     def get(self, request, *args, **kwargs):
         faq = Faq.objects.all()
         subjects = Subject.objects.filter(home=True)
-        
+        road = Road.objects.all()
         context = {
             "faq": faq,
             "sub": subjects,
+            "road": road,
         } 
         return render(request, "landing/land.html", context)
     

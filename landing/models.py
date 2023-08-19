@@ -57,3 +57,18 @@ class Subject(models.Model):
     
     class Meta:
         ordering = ["-date"]
+
+class Road(models.Model):
+    id = models.UUIDField(editable=False,primary_key=True,default=uuid.uuid4)
+    pub_date = models.DateField()
+    date = models.DateTimeField(auto_now_add=True)
+    text = models.CharField(max_length=150)
+    
+    def __str__(self):
+        return f"{self.text}"
+    
+    class Meta:
+        ordering = ["-date"]
+class Apply(models.Model):
+    id = models.UUIDField(editable=False,primary_key=True,default=uuid.uuid4)
+    
