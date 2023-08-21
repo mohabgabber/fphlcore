@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hq+2_0*ibkhn(%*ckfb)=pgkd611a=-2*1*hl)km!%%l361q6f'
 DEBUG = True
@@ -7,6 +8,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # * Apps
     'landing.apps.LandingConfig',
+
+    # * Frameworks
+    'ckeditor',
 
     # * Django stuff
     'django.contrib.admin',
@@ -76,3 +80,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+EMAIL_BACKEND = "django_smtp_ssl.SSLEmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = config('emuser')
+EMAIL_HOST_PASSWORD = config("empass")
+EMAIL_PORT = 465
+DEFAULT_FROM_EMAIL = config('emfrommail')
+EMAIL_USE_TLS = True
