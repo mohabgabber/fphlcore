@@ -88,3 +88,4 @@ EMAIL_HOST_PASSWORD = config("empass")
 EMAIL_PORT = 465
 DEFAULT_FROM_EMAIL = config('emfrommail')
 EMAIL_USE_TLS = True
+CSRF_TRUSTED_ORIGINS = ['https://fphl.org','http://www.fphl.org']
