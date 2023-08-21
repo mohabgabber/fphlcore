@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-hq+2_0*ibkhn(%*ckfb)=pgkd611a=-2*1*hl)km!%%l361q6f'
+SECRET_KEY = config("secret_key")
 DEBUG = True
 ALLOWED_HOSTS = []
 INSTALLED_APPS = [
