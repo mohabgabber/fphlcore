@@ -56,8 +56,8 @@
         dots: false,
         nav: true,
         navText : [
-            '<i class="bi bi-chevron-left"></i>',
-            '<i class="bi bi-chevron-right"></i>'
+            '<i class="fa-solid fa-arrow-left"></i>',
+            '<i class="fa-solid fa-arrow-right"></i>'
         ],
         responsive: {
             0:{
