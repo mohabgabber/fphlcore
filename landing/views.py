@@ -44,8 +44,8 @@ class Apply(View):
     def get(self, request, *args, **kwargs):
         return render(request, "landing/apply.html")
 
-class Subjects(View):
+class Study(View):
     def get(self, request, *args, **kwargs):
         subjects = Subject.objects.all()
         context = {"sub": subjects,}
-        return render(request, "landing/subjects.html", context)
+        return render(request, "landing/study.html", context)

@@ -1,0 +1,88 @@
+{% extends "landing/base.html" %}
+
+{% block title %}الدراسة{% endblock title %}
+
+{% block content %}
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center text-end">
+            <h3>المحتوى العلمي</h3>
+            <table class="table table-striped table-hover table-bordered table-responsive mx-auto">
+                <thead>
+                    <tr>
+                        <th scope="col">الجانب اللغوي</th>
+                        <th scope="col">الجانب القانوني</th>
+                        <th scope="col">الجانب الصوتي</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>أساسيات علم اللغة العام</td>
+                        <td>مهارات الترجمة القانونية</td>
+                        <td>الصوتيات النطقية الفسيولوجية</td>
+                    </tr>
+                    <tr>
+                        <td>التحليل اللغوي لإفادات الشهود​</td>
+                        <td>علم النفس القضائي</td>
+                        <td>عمليات سمع وإدراك الكلام​</td>
+                    </tr>
+                    <tr>
+                        <td>تحليل الخطاب والتفاعل الإجتماعي​</td>
+                        <td>لغة التحقيقات</td>
+                        <td>التعرف على المتكلم سمعيًا وتحليليًا​</td>
+                    </tr>
+                    <tr>
+                        <td>مناهج بحث في اللغويات القضائية​</td>
+                        <td>علم الإجرام​</td>
+                        <td>التحليل الصوتي لشهادة الشهود</td>
+                    </tr>
+                    <tr>
+                        <td>التداولية​</td>
+                        <td>المرافعة القضائية​</td>
+                        <td>التدريب على التعرف على اللهجات​</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>اللغة التشريعية</td>
+                        <td>الصوتيات الفيزيائية​</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center text-end">
+            <h3 id="subjects">المواد الدراسية</h3>
+            <table class="table table-striped table-hover table-bordered table-responsive mx-auto">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            الفصل الدراسي
+                        </th>
+                        <th scope="col">
+                            الوصف
+                        </th>
+                        <th scope="col">
+                            المادة
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in sub %}
+                    <tr>
+                        <td>{{i.term}}</td>
+                        <td>{{i.description}}</td>
+                        <td>{{i.name}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}
