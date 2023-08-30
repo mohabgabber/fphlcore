@@ -48,9 +48,11 @@ class Data(models.Model):
 class Subject(models.Model):
     id = models.UUIDField(editable=False, primary_key=True, default=uuid.uuid4)
     name = models.CharField(max_length=500)
-    description = RichTextField()
+    description = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     home = models.BooleanField(default=False)
+    year = models.IntegerField(default=0)
+    term = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.name}"
