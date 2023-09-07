@@ -22,6 +22,8 @@ class Research(models.Model):
     name = models.CharField(max_length=500)
     file = models.FileField(upload_to="research/pdfs/%Y", validators=[FileExtensionValidator(["pdf"], "Wrong Extension")], blank=True)
     description = RichTextField()
+    image = models.ImageField(upload_to="research/img/%Y", blank=True)
+    publish_date = models.DateField(blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
