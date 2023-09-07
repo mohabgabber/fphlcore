@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views import View
-from .models import Faq, Subject, Road, Team
+from .models import Faq, Subject, Road, Team, Research
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib import messages
@@ -36,9 +36,20 @@ class Contact(View):
         messages.success(request, "تم ارسال رسالتك بنجاح")
         return render(request, "landing/contact.html")
 
-class Research(View):
+class ResearchView(View):
     def get(self, request, *args, **kwargs):
-        return render(request, "landing/research.html")
+        searches = Research.objects.all()
+        context = {"research": searches,}
+        return render(request, "landing/research.html", context)
+
+class ResearchDetail(View):
+    def get(self, request, pk, *args, **kwargs):
+        if Research.objects.filter(id=pk).exists():
+            r = Research.objects.get(id=pk)
+            context = {"r": r,}
+        else:
+            return redirect("home")
+        return render(request, "landing/research-detail.html", context)
 
 class Apply(View):
     def get(self, request, *args, **kwargs):

@@ -1,4 +1,23 @@
 {% extends "landing/base.html" %}
 
 {% block content %}
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center text-end">
+            {% for r in research %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{r.image.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{r.name}}</h5>
+                        <p class="card-text">{{r.description|safe}}</p>
+                        <p class="card-text"><a href="{% url 'research-detail' r.id %}" class="btn btn-primary">تفاصيل
+                                البحث</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock content %}
