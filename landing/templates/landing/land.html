@@ -18,6 +18,29 @@
     </div>
 </div>
 
+{% if event.show %}
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center text-end">
+            {% if event.img %}
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <img class="img-fluid" src="{{event.img.url}}" alt="">
+            </div>
+            {% endif %}
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="h-100">
+                    <h1 class="display-6">{{event.name}}</h1>
+                    <p class="fs-4">
+                        {{event.description}}
+                    </p>
+                    <a class="btn btn-primary py-3 px-4" href="{{event.link}}">المزيد عن المحاضرة</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endif %}
 <div class="container-xxl py-5">
     <div class="container">
         <div class="row g-5 align-items-center text-end">
