@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 from decouple import config
+from django import conf
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config("secret_key")
 DEBUG = config("debug")
@@ -11,6 +12,7 @@ INSTALLED_APPS = [
 
     # * Frameworks
     'ckeditor',
+    'django_recaptcha',
 
     # * Django stuff
     'django.contrib.admin',
@@ -90,3 +92,5 @@ EMAIL_PORT = 465
 DEFAULT_FROM_EMAIL = config('emfrommail')
 EMAIL_USE_TLS = True
 CSRF_TRUSTED_ORIGINS = ['https://fphl.org', 'http://www.fphl.org']
+RECAPTCHA_PUBLIC_KEY = config('captchapub')
+RECAPTCHA_PRIVATE_KEY = config('captchasec')

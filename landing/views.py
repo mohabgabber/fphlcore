@@ -4,6 +4,7 @@ from .models import Faq, Subject, Road, Team, Research, Event
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib import messages
+from .forms import CaptchaForm
 
 
 class Land(View):
@@ -33,20 +34,28 @@ class About(View):
 
 class Contact(View):
     def get(self, request, *args, **kwargs):
-        return render(request, "landing/contact.html")
+        captcha = CaptchaForm()
+        context = {"captcha": captcha, }
+        return render(request, "landing/contact.html", context)
 
     def post(self, request, *args, **kwargs):
+        captcha = CaptchaForm(request.POST)
         name = request.POST.get("name")
         email = request.POST.get("email")
         subject = request.POST.get("subject")
         message = request.POST.get("message")
-        temp = render_to_string("landing/contact-us-submission.html", {
-                                'name': name, 'email': email, 'subject': subject, 'message': message, })
-        send_mail("New Contact Us Submission", temp, "forensicphonetician@gmail.com",
-                  ['forensicphonetician@gmail.com'], fail_silently=True)
-        messages.success(request, "تم ارسال رسالتك بنجاح")
-        return render(request, "landing/contact.html")
+        if captcha.is_valid():
 
+            temp = render_to_string("landing/contact-us-submission.html", {
+                                    'name': name, 'email': email, 'subject': subject, 'message': message, })
+            send_mail("New Contact Us Submission", temp, "forensicphonetician@gmail.com",
+                      ['forensicphonetician@gmail.com'], fail_silently=True)
+            messages.success(request, "تم ارسال رسالتك بنجاح")
+        else:
+            captcha = CaptchaForm()
+            messages.warning(request, "Captcha Is Invalid")
+        context = {"captcha": captcha, }
+        return render(request, "landing/contact.html", context)
 
 class ResearchView(View):
     def get(self, request, *args, **kwargs):
