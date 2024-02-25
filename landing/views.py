@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.views import View
-from .models import Faq, Subject, Road, Team, Research
+from .models import Faq, Subject, Road, Team, Research, Event
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib import messages
@@ -12,10 +12,15 @@ class Land(View):
         faq = Faq.objects.all()
         subjects = Subject.objects.filter(home=True)
         road = Road.objects.all()
+        try:
+            event = Event.objects.all().order_by('-adddate')[0]
+        except:
+            event = False
         context = {
             "faq": faq,
             "sub": subjects,
             "road": road,
+            "event": event,
         }
         return render(request, "landing/land.html", context)
 
@@ -51,7 +56,6 @@ class Contact(View):
             messages.warning(request, "Captcha Is Invalid")
         context = {"captcha": captcha, }
         return render(request, "landing/contact.html", context)
-
 
 class ResearchView(View):
     def get(self, request, *args, **kwargs):

@@ -78,6 +78,7 @@ USE_I18N = True
 USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+MEDIA_ROOT = config("media_root")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
@@ -91,6 +92,5 @@ EMAIL_PORT = 465
 DEFAULT_FROM_EMAIL = config('emfrommail')
 EMAIL_USE_TLS = True
 CSRF_TRUSTED_ORIGINS = ['https://fphl.org', 'http://www.fphl.org']
-
 RECAPTCHA_PUBLIC_KEY = config('captchapub')
 RECAPTCHA_PRIVATE_KEY = config('captchasec')
