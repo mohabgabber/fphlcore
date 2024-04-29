@@ -57,6 +57,7 @@ class Contact(View):
         context = {"captcha": captcha, }
         return render(request, "landing/contact.html", context)
 
+
 class ResearchView(View):
     def get(self, request, *args, **kwargs):
         searches = Research.objects.all()
@@ -84,3 +85,21 @@ class Study(View):
         subjects = Subject.objects.all()
         context = {"sub": subjects, }
         return render(request, "landing/study.html", context)
+
+
+class Events(View):
+    def get(self, request, *args, **kwargs):
+        events = Event.objects.all().order_by("-adddate")
+        context = {
+            "events": events,
+        }
+        return render(request, "landing/events.html", context)
+
+
+class EventDetail(View):
+    def get(self, request, id, *args, **kwargs):
+        event = Event.objects.get(id=id)
+        context = {
+            "event": event,
+        }
+        return render(request, "landing/event-detail.html", context)
