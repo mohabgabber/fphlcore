@@ -30,8 +30,8 @@
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="h-100">
                     <h1 class="display-6">{{event.name}}</h1>
-                    <p class="fs-4">
-                        {{event.description}}
+                    <p class="fs-4 text-wrap text-break">
+                        {{event.description|truncatechars:200}}
                     </p>
                     <a class="btn btn-primary py-3 px-4" href="{{event.link}}">المزيد عن المحاضرة</a>
                 </div>

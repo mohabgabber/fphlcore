@@ -12,7 +12,7 @@
                     <img src="{{r.img.url}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{r.name}}</h5>
-                        <p class="card-text">{{r.description|safe}}</p>
+                        <p class="card-text">{{r.description|safe|truncatechars:250}}</p>
                         <p class="card-text"><a href="{% url 'event-detail' r.id %}" target="_blank"
                                 class="btn btn-primary">مزيد عن
                                 الفعالية</a></p>
