@@ -11,6 +11,7 @@ env:
   emuser: test@test.com
   empass: password
   emfrommail: test@email.com
+  media_root: /mediaroot
 jobs:
   build:
 
