@@ -12,6 +12,8 @@ env:
   empass: password
   emfrommail: test@email.com
   media_root: /mediaroot
+  captchapub: sdsdfdsfsdf
+  captchasec: dasdsdasds
 jobs:
   build:
 
