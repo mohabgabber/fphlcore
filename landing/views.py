@@ -32,30 +32,30 @@ class About(View):
         return render(request, "landing/about.html", context)
 
 
-class Contact(View):
-    def get(self, request, *args, **kwargs):
-        captcha = CaptchaForm()
-        context = {"captcha": captcha, }
-        return render(request, "landing/contact.html", context)
+# class Contact(View):
+#     def get(self, request, *args, **kwargs):
+#         captcha = CaptchaForm()
+#         context = {"captcha": captcha, }
+#         return render(request, "landing/contact.html", context)
 
-    def post(self, request, *args, **kwargs):
-        captcha = CaptchaForm(request.POST)
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        subject = request.POST.get("subject")
-        message = request.POST.get("message")
-        if captcha.is_valid():
+#     def post(self, request, *args, **kwargs):
+#         captcha = CaptchaForm(request.POST)
+#         name = request.POST.get("name")
+#         email = request.POST.get("email")
+#         subject = request.POST.get("subject")
+#         message = request.POST.get("message")
+#         if captcha.is_valid():
 
-            temp = render_to_string("landing/contact-us-submission.html", {
-                                    'name': name, 'email': email, 'subject': subject, 'message': message, })
-            send_mail("New Contact Us Submission", temp, "forensicphonetician@gmail.com",
-                      ['forensicphonetician@gmail.com'], fail_silently=True)
-            messages.success(request, "تم ارسال رسالتك بنجاح")
-        else:
-            captcha = CaptchaForm()
-            messages.warning(request, "Captcha Is Invalid")
-        context = {"captcha": captcha, }
-        return render(request, "landing/contact.html", context)
+#             temp = render_to_string("landing/contact-us-submission.html", {
+#                                     'name': name, 'email': email, 'subject': subject, 'message': message, })
+#             send_mail("New Contact Us Submission", temp, "forensicphonetician@gmail.com",
+#                       ['forensicphonetician@gmail.com'], fail_silently=True)
+#             messages.success(request, "تم ارسال رسالتك بنجاح")
+#         else:
+#             captcha = CaptchaForm()
+#             messages.warning(request, "Captcha Is Invalid")
+#         context = {"captcha": captcha, }
+#         return render(request, "landing/contact.html", context)
 
 
 class ResearchView(View):
