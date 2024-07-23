@@ -13,10 +13,9 @@ RUN adduser --disabled-password runner
 RUN chown -R runner:runner /app/fphlcore
 USER runner
 ############################
-RUN python manage.py makemigrations
+RUN python manage.py makemigrations landing
 RUN python manage.py migrate --no-input
 RUN python manage.py collectstatic --no-input
-RUN chmod -R 777 ./staticroot
 ############################
 EXPOSE 8000
 ############################
