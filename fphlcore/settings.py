@@ -1,14 +1,13 @@
 from pathlib import Path
 import os
-from decouple import config
-from django import conf
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = config("secret_key")
-DEBUG = config("debug")
-ALLOWED_HOSTS = []
+SECRET_KEY = os.getenv("SECRET_KEY")
+DEBUG = False
+ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     # * Apps
     'landing.apps.LandingConfig',
+
 
     # * Frameworks
     'ckeditor',
@@ -76,21 +75,23 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
+
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = config("media_root")
+MEDIA_ROOT = os.getenv("MEDIA_ROOT")
+STATIC_ROOT = "./staticroot"  # os.getenv("STATIC_ROOT")
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticroot')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),
+                    )  # (os.getenv("STATIC_FILES"),)
 
 EMAIL_BACKEND = "django_smtp_ssl.SSLEmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = config('emuser')
-EMAIL_HOST_PASSWORD = config("empass")
+EMAIL_HOST_USER = os.getenv("EMAIL_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_PASSWORD")
 EMAIL_PORT = 465
-DEFAULT_FROM_EMAIL = config('emfrommail')
 EMAIL_USE_TLS = True
-CSRF_TRUSTED_ORIGINS = ['https://fphl.org', 'http://www.fphl.org']
-RECAPTCHA_PUBLIC_KEY = config('captchapub')
-RECAPTCHA_PRIVATE_KEY = config('captchasec')
+CSRF_TRUSTED_ORIGINS = ['https://fphl.org', 'http://fphl.org',
+                        'http://www.fphl.org', 'https://www.fphl.org']
+RECAPTCHA_PUBLIC_KEY = str(os.getenv("RECAPTCHA_PUBLIC"))
+RECAPTCHA_PRIVATE_KEY = str(os.getenv("RECAPTCHA_PRIVATE"))
