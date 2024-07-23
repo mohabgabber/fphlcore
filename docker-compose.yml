@@ -10,6 +10,7 @@ services:
       - ./:/app/fphlcore/
       - media:/app/fphlcore/media
       - static:/app/fphlcore/staticroot
+      - db:/app/fphlcore/
     networks:
       - site-network
   nginx:
@@ -30,5 +31,6 @@ networks:
   site-network:
     driver: bridge
 volumes:
+  db:
   media:
   static:
