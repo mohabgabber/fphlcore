@@ -1,8 +1,0 @@
-env/
-__pycache__/
-*.sqlite3
-.vscode/
-migrations/
-.env
-media/*
-.gitignore

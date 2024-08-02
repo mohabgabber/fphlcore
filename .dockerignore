@@ -1,7 +1,0 @@
-.git/
-env/
-__pycache__/
-migrations/
-*.sqlite3
-.vscode/
-.env
